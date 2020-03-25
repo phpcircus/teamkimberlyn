@@ -1,0 +1,59 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/recommended"
+    ],
+    "parserOptions": {
+        "parser": "babel-eslint",
+        "ecmaVersion": 2019
+    },
+    "globals": {
+        "Nova": true,
+        "axios": true,
+        "_": true,
+        "moment": true,
+        "DumpListener": true,
+        "Inertia": true,
+        "route": true
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "constructor-super": "warn",
+        "indent": ["error", 4],
+        "no-console": 1,
+        "no-const-assign": "warn",
+        "no-this-before-super": "warn",
+        "no-undef": "warn",
+        "no-unreachable": "warn",
+        "no-unused-vars": "warn",
+        "quotes": ["warn", "single"],
+        "semi": "off",
+        "space-before-function-paren": ["error", "always"],
+        "valid-typeof": "warn",
+        "vue/component-tags-order": ["error", {
+            "order": ["template", "script", "style"]
+          }],
+        "vue/no-v-html": 0,
+        "vue/html-indent": ["error", 4],
+        "vue/max-attributes-per-line": 0,
+        "vue/require-default-prop": 0,
+        "vue/script-indent": ["error", 4, { "baseIndent": 0 }],
+        "vue/singleline-html-element-content-newline": 0,
+        "sort-imports": ["error", {
+            "ignoreCase": true,
+            "ignoreDeclarationSort": true,
+            "ignoreMemberSort": true,
+            "memberSyntaxSortOrder": ["none", "single", "multiple", "all"]
+        }],
+        "comma-dangle": ["error", {
+            "arrays": "always-multiline",
+            "objects": "always-multiline",
+            "imports": "always-multiline",
+            "exports": "always-multiline",
+            "functions": "always-multiline"
+        }]
+    }
+}
