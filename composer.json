@@ -1,6 +1,6 @@
 {
-    "name": "phpcircus/glowinggrace",
-    "description": "Blog for GlowingGrace.com",
+    "name": "phpcircus/teamkimberlyn",
+    "description": "Blog for Team Kimberly website",
     "version": "1.0.0",
     "keywords": [
         "laravel",
@@ -8,7 +8,7 @@
         "cancer",
         "thoughts"
     ],
-    "homepage": "https://github.com/phpcircus/glowinggrace",
+    "homepage": "https://github.com/phpcircus/teamkimberlyn",
     "license": "MIT",
     "authors": [
         {
