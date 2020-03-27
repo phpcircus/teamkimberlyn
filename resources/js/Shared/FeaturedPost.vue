@@ -7,7 +7,7 @@
                 <p class="text-teal-300 text-sm italic font-semibold mt-2">{{ featured.featured_image_caption }}</p>
             </div>
             <div class="w-full h-auto md:h-full md:w-1/3 flex flex-col flex-grow">
-                <div class="flex-1 bg-white rounded-tr-lg overflow-hidden shadow-lg">
+                <div class="flex-1 flex flex-col bg-white rounded-tr-lg overflow-hidden shadow-lg">
                     <p class="w-full pt-6 px-6">
                         <template v-for="(tag, index) in featured.tags">
                             <div :key="tag.id" class="inline-block">
@@ -20,9 +20,10 @@
                     <p class="text-gray-800 font-serif text-lg pl-6 pr-8 mb-5">
                         {{ featured.excerpt }}
                     </p>
+                    <span class="text-teal-500 text-xs md:text-sm font-semibold px-6 ml-auto">Read Full Post</span>
                 </div>
 
-                <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
+                <div class="flex-none mt-auto bg-white border-t border-gray-400 rounded-b rounded-t-none overflow-hidden shadow-lg px-4 pt-4 pb-3">
                     <div class="flex items-center justify-between mb-4">
                         <p class="text-gray-600 text-xs md:text-sm font-semibold">{{ featured.readable_publish_date }}</p>
                         <p class="text-gray-800 text-xs md:text-sm font-semibold ml-auto pr-8">{{ calculateReadTime(featured.body) }}</p>
