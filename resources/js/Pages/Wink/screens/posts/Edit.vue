@@ -11,7 +11,19 @@
                             {{ value[0] }}
                         </span>
                     </div>
+                    <div class="flex items-center">
+                        <span class="flex items-center px-3 py-2 text-base cursor-pointer group" href="#" @click="deletePost()">
+                            <icon-base width="18" height="18" icon-fill="fill-red-500" icon-name="trash" classes="mr-2 group-hover:fill-red-300">
+                                <trash />
+                            </icon-base>
+                        </span>
+                    </div>
                     <div class="flex items-center ml-auto">
+                        <span class="flex items-center px-3 py-2 text-base cursor-pointer group" href="#" @click="featuredImageModal()">
+                            <icon-base width="18" height="18" icon-fill="fill-teal-500" icon-name="featured image" classes="mr-2 group-hover:fill-teal-300">
+                                <photo />
+                            </icon-base>
+                        </span>
                         <span class="flex items-center px-3 py-2 text-base cursor-pointer group" href="#" @click="settingsModal()">
                             <icon-base width="18" height="18" icon-fill="fill-teal-500" icon-name="settings" classes="mr-2 group-hover:fill-teal-300">
                                 <cog />
@@ -105,13 +117,17 @@ import IconBase from '@/Shared/IconBase';
 import Layout from '@/Shared/Layout';
 import Modal from '@/wink/components/Modal';
 import MultiSelect from '@/wink/components/MultiSelect';
+import Photo from '@/Shared/Icons/Photo';
 import Search from '@/Shared/Icons/Search';
 import SeoModal from '@/wink/components/SEOModal';
+import Trash from '@/Shared/Icons/Trash';
 
 export default {
     components: {
         Cog,
         Modal,
+        Photo,
+        Trash,
         Search,
         Layout,
         Editor,
@@ -150,7 +166,7 @@ export default {
                 author_id: '',
                 featured_image: '',
                 featured_image_caption: '',
-                body: '',
+                body: 'Post body.',
                 published: false,
                 publish_date: '',
                 meta: {
@@ -168,15 +184,15 @@ export default {
         };
     },
     watch: {
-        'form.slug'(val) {
+        'form.slug' (val) {
             this.debouncer(() => {
                 this.form.slug = this.slugify(val);
             });
         },
-        'form.featured_image'() {
+        'form.featured_image' () {
             this.save();
         },
-        'form.published'(val) {
+        'form.published' (val) {
             if (this.postBodyWatcher) {
                 this.postBodyWatcher();
             }
@@ -193,10 +209,12 @@ export default {
     },
     mounted () {
         this.loadResources();
+
         if (! this.isEmpty(this.entry)) {
             this.fillForm(this.entry);
         }
 
+        this.setDefaultFeaturedImage();
         this.ready = true;
     },
     destroyed () {
@@ -280,15 +298,13 @@ export default {
             this.form.featured_image_caption = caption;
         },
         deletePost () {
-            console.log('delete post');
             this.resetWorkingPost();
-            // this.alertConfirm("Are you sure you want to delete this post?", () => {
-            //     this.settingsModalShown = false;
-
-            //     this.http().delete('/api/posts/' + this.id, this.form).then(response => {
-            //         this.$router.push({name: 'posts'})
-            //     })
-            // });
+            this.$showConfirm('warning', 'post', 'delete', () => {
+                this.settingsModalShown = false;
+                this.$inertia.delete(this.route('admin.posts.delete', this.form.id)).then(() => {
+                    this.$modal.hide('confirmModal');
+                });
+            });
         },
         publishPost () {
             this.form.published = true;
@@ -342,6 +358,13 @@ export default {
                 slug: '',
             };
         },
-    }
+        setDefaultFeaturedImage () {
+            if (this.form.featured_image === null) {
+                axios.get('https://picsum.photos/1080/720').then(response => {
+                    this.form.featured_image = `https://i.picsum.photos/id/${response.headers['picsum-id']}/1080/720.jpg`;
+                });
+            }
+        },
+    },
 }
 </script>

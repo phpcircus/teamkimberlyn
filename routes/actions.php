@@ -43,6 +43,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($router) {
         $router->get('/', Actions\Admin\Post\Index::class)->name('index');
         $router->get('/new', Actions\Admin\Post\Edit::class)->name('create');
         $router->get('/{post}/edit', Actions\Admin\Post\Edit::class)->name('edit');
+        $router->delete('/{post}', Actions\Admin\Post\Delete::class)->name('delete');
     });
     $router->group(['as' => 'news.', 'prefix' => 'news', 'middleware' => [Wink::class]], function ($router) {
         $router->get('/new', Actions\Admin\News\Create::class)->name('create');
