@@ -59,10 +59,6 @@ export default {
 
     mounted () {
         this.layouts = [{id: 'test', name: 'Test'}];
-        Hub.$on('imageChanged', (obj) => {
-            console.log('image changed');
-            this.updateImage(obj);
-        });
 
         Hub.$listen('openingImageUploader', data => {
             if (data) {
