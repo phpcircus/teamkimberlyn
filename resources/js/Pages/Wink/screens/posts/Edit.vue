@@ -1,7 +1,7 @@
 <template>
     <layout title="New Post">
-        <portal v-if="isPath('admin')" to="adminTopNav">
-            <admin-top-nav />
+        <portal v-if="isPath('admin')" to="AdminTopPostNav">
+            <admin-top-post-nav />
         </portal>
         <div class="w-full bg-white pt-4">
             <div class="flex flex-col max-w-7xl px-8">
@@ -106,7 +106,7 @@
 </template>
 
 <script>
-import AdminTopNav from '@/Shared/AdminTopNav';
+import AdminTopPostNav from '@/Shared/AdminTopPostNav';
 import axios from 'axios';
 import Cog from '@/Shared/Icons/Cog';
 import Editor from '@/wink/components/Editor';
@@ -134,7 +134,7 @@ export default {
         IconBase,
         SeoModal,
         FormErrors,
-        AdminTopNav,
+        AdminTopPostNav,
         MultiSelect,
         'featured-image-uploader': FeaturedImageUploader,
     },

@@ -27,7 +27,8 @@
 
         <!-- Main Content -->
         <div class="flex flex-col container mx-auto max-w-7xl py-8 relative min-h-50">
-            <portal-target name="adminTopNav" />
+            <portal-target name="AdminTopPostNav" />
+            <portal-target name="AdminTopAuthorNav" />
             <slot />
         </div>
 

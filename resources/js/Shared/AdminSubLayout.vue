@@ -1,16 +1,16 @@
 <template>
     <div class="w-full mt-8 border-b border-gray-400">
-        <admin-top-nav />
+        <admin-top-post-nav />
         <slot />
     </div>
 </template>
 
 <script>
-import AdminTopNav from '@/Shared/AdminTopNav';
+import AdminTopPostNav from '@/Shared/AdminTopPostNav';
 
 export default {
     components: {
-        AdminTopNav,
+        AdminTopPostNav,
     },
 }
 </script>

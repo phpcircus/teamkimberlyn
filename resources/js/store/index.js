@@ -15,6 +15,13 @@ export default {
         published: false,
         slug: '',
     },
+    workingAuthor: {
+        id: '',
+        name: '',
+        slug: '',
+        email: '',
+        meta: {},
+    },
     meta: {
         admin: {
             name: config.admin.name,

@@ -55,6 +55,11 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function ($router) {
         $router->post('/{purchase}', Actions\Admin\Tshirt\Update::class)->name('update');
         $router->get('/orders/pdf', Actions\Admin\Tshirt\Pdf\OrdersPdf::class)->name('orders.pdf');
     });
+    $router->group(['as' => 'authors.', 'prefix' => 'authors', 'middleware' => [Wink::class]], function ($router) {
+        $router->get('/', Actions\Admin\Author\Index::class)->name('index');
+        $router->get('/{id}/edit', Actions\Admin\Author\Edit::class)->name('edit');
+        $router->post('/', Actions\Admin\Author\Store::class)->name('store');
+    });
 });
 
 // Admin Api
