@@ -43,7 +43,11 @@
                     </dropdown>
                 </div>
                 <div class="menu focus:underline-mr-2 flex md:hidden cursor-pointer" @click="open = ! open">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
                 </div>
             </div>
         </div>
@@ -68,7 +72,8 @@
                     </div>
                 </div>
                 <div class="mt-3">
-                    <a :href="`/wink/team/${$page.wink.author.id}`" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-white hover:bg-teal-500 focus:outline-none focus:text-white focus:bg-teal-500">Profile</a>
+                    <inertia-link :href="route('admin.authors.edit', $page.wink.author.id)" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-white hover:bg-teal-500 focus:outline-none focus:text-white focus:bg-teal-500">Profile</inertia-link>
+                    <inertia-link :href="route('admin.authors.index')" class="mt-1 block px-3 py-2 text-base font-medium text-gray-900 hover:text-white hover:bg-teal-500 focus:outline-none focus:text-white focus:bg-teal-500">Manage Users</inertia-link>
                     <inertia-link :href="route('admin.posts.index')" class="mt-1 block px-3 py-2 text-base font-medium text-gray-900 hover:text-white hover:bg-teal-500 focus:outline-none focus:text-white focus:bg-teal-500">Manage Posts</inertia-link>
                     <inertia-link :href="route('admin.news.create')" class="mt-1 block px-3 py-2 text-base font-medium text-gray-900 hover:text-white hover:bg-teal-500 focus:outline-none focus:text-white focus:bg-teal-500">Quick News Item</inertia-link>
                     <inertia-link :href="route('admin.tshirts.index')" class="mt-1 block px-3 py-2 text-base font-medium text-gray-900 hover:text-white hover:bg-teal-500 focus:outline-none focus:text-white focus:bg-teal-500">Manage Purchases</inertia-link>

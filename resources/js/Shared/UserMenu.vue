@@ -1,15 +1,21 @@
 <template>
     <div class="flex flex-col py-1 rounded-md bg-white shadow-xs">
         <div v-if="$page.wink.author">
-            <a class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="`/wink/team/${$page.wink.author.id}`">
+            <inertia-link class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="route('admin.authors.edit', $page.wink.author.id)">
                 <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="profile" classes="mr-2 group-hover:fill-white">
                     <profile />
                 </icon-base>
                 My Profile
-            </a>
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="route('admin.posts.index')">
+            </inertia-link>
+            <inertia-link class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="route('admin.authors.index')">
                 <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="users" classes="mr-2 group-hover:fill-white">
                     <users />
+                </icon-base>
+                Manage Users
+            </inertia-link>
+            <inertia-link class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="route('admin.posts.index')">
+                <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="posts" classes="mr-2 group-hover:fill-white">
+                    <newspaper />
                 </icon-base>
                 Manage Posts
             </inertia-link>
@@ -47,6 +53,7 @@ import Users from '@/Shared/Icons/Users';
 import Logout from '@/Shared/Icons/Logout';
 import ListAdd from '@/Shared/Icons/ListAdd';
 import LockClosed from '@/Shared/Icons/LockClosed';
+import Newspaper from '@/Shared/Icons/Newspaper';
 import Profile from '@/Shared/Icons/Profile';
 import Shirt from '@/Shared/Icons/Shirt';
 
@@ -58,6 +65,7 @@ export default {
         Profile,
         ListAdd,
         IconBase,
+        Newspaper,
         LockClosed,
     },
 }
