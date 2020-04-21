@@ -3,7 +3,7 @@
         <modal />
         <flash-message />
         <portal-target name="unsplashModal" class="absolute w-full" style="z-index: 60;" />
-        <top-nav :background-color="getTopNavBackground()" />
+        <top-nav />
         <portal-target name="mega" class="absolute w-full z-10" />
 
         <!--Header-->
