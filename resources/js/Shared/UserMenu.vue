@@ -1,44 +1,44 @@
 <template>
     <div class="flex flex-col py-1 rounded-md bg-white shadow-xs">
         <div v-if="$page.wink.author">
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="route('admin.authors.edit', $page.wink.author.id)">
+            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('admin.authors.edit', $page.wink.author.id)">
                 <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="profile" classes="mr-2 group-hover:fill-white">
                     <profile />
                 </icon-base>
                 My Profile
             </inertia-link>
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="route('admin.authors.index')">
+            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('admin.authors.index')">
                 <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="users" classes="mr-2 group-hover:fill-white">
                     <users />
                 </icon-base>
                 Manage Users
             </inertia-link>
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="route('admin.posts.index')">
+            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('admin.posts.index')">
                 <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="posts" classes="mr-2 group-hover:fill-white">
                     <newspaper />
                 </icon-base>
                 Manage Posts
             </inertia-link>
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="route('admin.news.create')">
+            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('admin.news.create')">
                 <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="users" classes="mr-2 group-hover:fill-white">
                     <list-add />
                 </icon-base>
                 Quick News Item
             </inertia-link>
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="route('admin.tshirts.index')">
+            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('admin.tshirts.index')">
                 <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="purchases" classes="mr-2 group-hover:fill-white">
                     <shirt />
                 </icon-base>
                 Manage Purchases
             </inertia-link>
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="route('logout')" method="post">
+            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('logout')" method="post">
                 <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="logout" classes="mr-2 group-hover:fill-white">
                     <logout />
                 </icon-base>
                 Logout
             </inertia-link>
         </div>
-        <a v-else class="flex items-center px-3 py-2 hover:bg-purple-600 hover:text-white text-base group" :href="route('login.form')">
+        <a v-else class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('login.form')">
             <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="login" classes="mr-2 group-hover:fill-white">
                 <lock-closed />
             </icon-base>

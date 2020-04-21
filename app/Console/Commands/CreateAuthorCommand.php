@@ -45,6 +45,7 @@ class CreateAuthorCommand extends Command
             'bio' => 'This is me.',
             'email' => $this->option('email'),
             'password' => bcrypt($this->option('password')),
+            'meta' => [],
         ];
 
         $author = $this->authors->create($data);

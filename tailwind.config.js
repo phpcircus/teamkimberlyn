@@ -352,19 +352,14 @@ module.exports = {
         stroke: ['hover', 'focus', 'group-hover'],
         width: ['responsive'],
         borderWidth: ['responsive', 'last'],
-        margin: ['last-child', 'responsive', 'last'],
+        margin: ['responsive', 'last'],
         backgroundColor: ['responsive', 'hover', 'focus', 'group-hover', 'odd'],
         display: ['logged-in', 'logged-out', 'responsive', 'hover'],
+        borderRadius: ['responsive', 'last'],
     },
     plugins: [
         require('./resources/js/lib/tailwindcss/plugins/tables')(),
         require('./resources/js/lib/tailwindcss/plugins/variants'),
-        function ({ addVariant, e }) {
-            addVariant('last-child', ({ modifySelectors, separator }) => {
-                modifySelectors(({ className }) => {
-                    return `.${e(`last-child${separator}${className}`)}:last-child`;
-                });
-            });
-        },
+        require('@tailwindcss/ui'),
     ],
 }

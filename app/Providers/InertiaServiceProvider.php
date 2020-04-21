@@ -162,7 +162,7 @@ class InertiaServiceProvider extends ServiceProvider
     {
         Inertia::share([
             'news' => function () {
-                if ($news = News::latest()->limit(5)->get()) {
+                if ($news = News::latest()->with('author')->limit(5)->get()) {
                     return $news;
                 }
 

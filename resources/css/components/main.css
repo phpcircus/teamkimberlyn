@@ -8,3 +8,6 @@
 @import './buttons.css';
 @import './light.css';
 /* @import './dark.css'; */
+
+[x-cloak] { display: none; }
+[v-cloak] { display: none; }

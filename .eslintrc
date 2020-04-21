@@ -41,6 +41,15 @@
         "vue/max-attributes-per-line": 0,
         "vue/require-default-prop": 0,
         "vue/script-indent": ["error", 4, { "baseIndent": 0 }],
+        "vue/html-self-closing": ["error", {
+            "html": {
+              "void": "always",
+              "normal": "always",
+              "component": "always"
+            },
+            "svg": "always",
+            "math": "always"
+        }],
         "vue/singleline-html-element-content-newline": 0,
         "sort-imports": ["error", {
             "ignoreCase": true,

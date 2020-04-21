@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Traits\Slug\HasSlug;
 use App\Models\Traits\Slug\SlugOptions;
 use App\Models\Traits\Uuid\HasUuids;
+use Illuminate\Support\Str;
 use Wink\WinkAuthor;
 
 class News extends Model
@@ -12,7 +13,7 @@ class News extends Model
     use HasSlug, HasUuids;
 
     /** @var string */
-    protected $table = "news";
+    protected $table = 'news';
 
     /** @var string */
     protected $primaryKey = 'id';
@@ -26,6 +27,7 @@ class News extends Model
     /** @var array */
     protected $appends = [
         'readable_created_at',
+        'excerpt',
     ];
 
     /**
@@ -47,6 +49,14 @@ class News extends Model
     }
 
     /**
+     * Get a the excerpt attribute for the post.
+     */
+    public function getExcerptAttribute(): string
+    {
+        return Str::limit($this->attributes['body'], 100);
+    }
+
+    /**
      * The news author.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -62,12 +72,12 @@ class News extends Model
      * @param  string  $title
      * @param  string  $body
      */
-    public function createNews(string $title, string $body, string $authorId): News
+    public function createNews(string $title, string $body, string $authorId): self
     {
         return $this->create([
             'title' => $title,
             'body' => $body,
-            'author_id' => $authorId
+            'author_id' => $authorId,
         ]);
     }
 }
