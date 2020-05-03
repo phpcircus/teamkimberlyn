@@ -64,12 +64,12 @@
                                  x-cloak
                                  class="origin-top-right absolute right-30 xl:right-0 mt-2 w-48 rounded-md shadow-lg z-20"
                                  x-on:click.away="userOpen = false"
-                                 x-transition:enter="transition ease-out duration-200 transform"
-                                 x-transition:enter-start="opacity-0 scale-95"
+                                 x-transition:enter="transition ease-out duration-500 transform"
+                                 x-transition:enter-start="opacity-0 scale-50"
                                  x-transition:enter-end="opacity-100 scale-100"
-                                 x-transition:leave="transition ease-in duration-75 transform"
+                                 x-transition:leave="transition ease-in duration-300 transform"
                                  x-transition:leave-start="opacity-100 scale-100"
-                                 x-transition:leave-end="opacity-0 scale-95"
+                                 x-transition:leave-end="opacity-0 scale-50"
                             >
                                 <user-menu />
                             </div>
@@ -81,13 +81,13 @@
                  x-show="quicknewsOpen"
                  x-cloak
                  class="w-1/3 absolute top-25 left-50 bg-white shadow-md rounded-lg z-20"
-                 x-transition:enter="transition ease-out duration-200 transform"
+                 x-transition:enter="transition ease-out duration-500 transform"
                  x-on:click.away="quicknewsOpen = false"
-                 x-transition:enter-start="opacity-0 scale-95"
+                 x-transition:enter-start="opacity-0 scale-50"
                  x-transition:enter-end="opacity-100 scale-100"
-                 x-transition:leave="transition ease-in duration-75 transform"
+                 x-transition:leave="transition ease-in duration-300 transform"
                  x-transition:leave-start="opacity-100 scale-100"
-                 x-transition:leave-end="opacity-0 scale-95"
+                 x-transition:leave-end="opacity-0 scale-50"
             >
                 <quick-news />
             </div>
