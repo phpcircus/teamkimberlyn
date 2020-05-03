@@ -1,49 +1,51 @@
 <template>
-    <div class="flex flex-col py-1 rounded-md bg-white shadow-xs">
-        <div v-if="$page.wink.author">
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('admin.authors.edit', $page.wink.author.id)">
-                <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="profile" classes="mr-2 group-hover:fill-white">
-                    <profile />
+    <div class="w-240p mt-3 shadow-sm bg-gray-200 rounded text-sm">
+        <div class="flex flex-col py-1 rounded-md bg-white shadow-md">
+            <div v-if="$page.wink.author">
+                <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 group" :href="route('admin.authors.edit', $page.wink.author.id)">
+                    <icon-base width="14" height="14" icon-fill="fill-teal-500" icon-name="profile" classes="mr-2 group-hover:fill-white">
+                        <profile />
+                    </icon-base>
+                    <span class="text-teal-600 group-hover:text-white text-base font-normal">My Profile</span>
+                </inertia-link>
+                <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 group" :href="route('admin.authors.index')">
+                    <icon-base width="14" height="14" icon-fill="fill-teal-500" icon-name="users" classes="mr-2 group-hover:fill-white">
+                        <users />
+                    </icon-base>
+                    <span class="text-teal-600 group-hover:text-white text-base font-normal">Manage Users</span>
+                </inertia-link>
+                <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 group" :href="route('admin.posts.index')">
+                    <icon-base width="14" height="14" icon-fill="fill-teal-500" icon-name="posts" classes="mr-2 group-hover:fill-white">
+                        <newspaper />
+                    </icon-base>
+                    <span class="text-teal-600 group-hover:text-white text-base font-normal">Manage Posts</span>
+                </inertia-link>
+                <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 group" :href="route('admin.news.create')">
+                    <icon-base width="14" height="14" icon-fill="fill-teal-500" icon-name="users" classes="mr-2 group-hover:fill-white">
+                        <list-add />
+                    </icon-base>
+                    <span class="text-teal-600 group-hover:text-white text-base font-normal">Quick News Item</span>
+                </inertia-link>
+                <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 group" :href="route('admin.tshirts.index')">
+                    <icon-base width="14" height="14" icon-fill="fill-teal-500" icon-name="purchases" classes="mr-2 group-hover:fill-white">
+                        <shirt />
+                    </icon-base>
+                    <span class="text-teal-600 group-hover:text-white text-base font-normal">Manage Purchases</span>
+                </inertia-link>
+                <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 group" :href="route('logout')" method="post">
+                    <icon-base width="14" height="14" icon-fill="fill-teal-500" icon-name="logout" classes="mr-2 group-hover:fill-white">
+                        <logout />
+                    </icon-base>
+                    <span class="text-teal-600 group-hover:text-white text-base font-normal">Logout</span>
+                </inertia-link>
+            </div>
+            <a v-else class="flex items-center px-3 py-2 hover:bg-teal-600 group" :href="route('login.form')">
+                <icon-base width="14" height="14" icon-fill="fill-teal-500" icon-name="login" classes="mr-2 group-hover:fill-white">
+                    <lock-closed />
                 </icon-base>
-                My Profile
-            </inertia-link>
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('admin.authors.index')">
-                <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="users" classes="mr-2 group-hover:fill-white">
-                    <users />
-                </icon-base>
-                Manage Users
-            </inertia-link>
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('admin.posts.index')">
-                <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="posts" classes="mr-2 group-hover:fill-white">
-                    <newspaper />
-                </icon-base>
-                Manage Posts
-            </inertia-link>
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('admin.news.create')">
-                <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="users" classes="mr-2 group-hover:fill-white">
-                    <list-add />
-                </icon-base>
-                Quick News Item
-            </inertia-link>
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('admin.tshirts.index')">
-                <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="purchases" classes="mr-2 group-hover:fill-white">
-                    <shirt />
-                </icon-base>
-                Manage Purchases
-            </inertia-link>
-            <inertia-link class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('logout')" method="post">
-                <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="logout" classes="mr-2 group-hover:fill-white">
-                    <logout />
-                </icon-base>
-                Logout
-            </inertia-link>
+                <span class="text-teal-600 group-hover:text-white text-base font-normal">Login</span>
+            </a>
         </div>
-        <a v-else class="flex items-center px-3 py-2 hover:bg-teal-600 hover:text-white text-base group" :href="route('login.form')">
-            <icon-base width="14" height="14" icon-fill="fill-gray-800" icon-name="login" classes="mr-2 group-hover:fill-white">
-                <lock-closed />
-            </icon-base>
-            Login
-        </a>
     </div>
 </template>
 

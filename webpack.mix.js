@@ -13,7 +13,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
     whitelistPatterns: [/^attachment/, /^v-/, /^nprogress/, /^spinner/, /^peg/, /^bar/, /^vdp/, /^report/, /^vgt/, /^footer/],
     extractors: [
         {
-            extractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+            extractor: content => content.match(/[\w-/.:]+(?<!:)/g) || [],
             extensions: ['html', 'js', 'php', 'vue'],
         },
     ],
