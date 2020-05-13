@@ -51,7 +51,8 @@
     47 => 'App\\Providers\\DatabaseServiceProvider',
     48 => 'App\\Providers\\UrlServiceProvider',
     49 => 'App\\Providers\\DebugbarServiceProvider',
-    50 => 'App\\Providers\\IdeHelperServiceProvider',
+    50 => 'App\\Providers\\FakerServiceProvider',
+    51 => 'App\\Providers\\IdeHelperServiceProvider',
   ),
   'eager' => 
   array (
@@ -91,7 +92,8 @@
     33 => 'App\\Providers\\DatabaseServiceProvider',
     34 => 'App\\Providers\\UrlServiceProvider',
     35 => 'App\\Providers\\DebugbarServiceProvider',
-    36 => 'App\\Providers\\IdeHelperServiceProvider',
+    36 => 'App\\Providers\\FakerServiceProvider',
+    37 => 'App\\Providers\\IdeHelperServiceProvider',
   ),
   'deferred' => 
   array (

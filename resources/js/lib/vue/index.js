@@ -98,6 +98,7 @@ Vue.filter('capitalize', value => {
 
 // Directives
 Vue.directive('loading', require('@/wink/components/loadingButton'));
+Vue.directive('click-outside', require('@/wink/components/clickOutside'));
 
 if (process.env.MIX_APP_ENV === 'production') {
     Vue.config.devtools = false;

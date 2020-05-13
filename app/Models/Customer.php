@@ -19,13 +19,11 @@ class Customer extends Model
 
     /**
      * Create a new customer.
-     *
-     * @param  array  $attributes
      */
     public function createCustomer(array $attributes): Customer
     {
         return $this->firstOrCreate([
-            'email' => $attributes['email']
+            'email' => $attributes['email'],
         ], [
             'name' => $attributes['name'],
             'phone' => $attributes['phone'],
