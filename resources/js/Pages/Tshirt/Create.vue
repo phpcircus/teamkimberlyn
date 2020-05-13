@@ -2,6 +2,9 @@
     <layout title="Team Kimberlyn">
         <div class="flex flex-col bg-white shadow-md container mx-auto max-w-7xl">
             <div class="px-6 pb-8">
+                <div class="w-full p-2 text-center">
+                    <h2 class="font-bold text-xl text-purple-600 uppercase">T-shirt sales will end on May 31<sup>st</sup>. Don't miss out!</h2>
+                </div>
                 <div class="w-full flex flex-col md:flex-row justify-center mt-2">
                     <img src="/img/black_shirt.jpg" class="w-full md:w-1/3 h-auto border-4 border-gray-400 rounded shadow">
                     <img src="/img/gray_shirt.jpg" class="w-full md:w-1/3 h-auto border-4 border-gray-400 rounded shadow">

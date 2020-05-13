@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\User;
-use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Seeder;
+use Ramsey\Uuid\Uuid;
 
 class UsersTableSeeder extends Seeder
 {

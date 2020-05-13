@@ -109,11 +109,13 @@
 <script>
 import Modal from '@/wink/components/Modal';
 import Preloader from '@/wink/partials/Preloader';
+import ImagePicker from '@/wink/components/ImagePicker';
 
 export default {
     components: {
         Modal,
         Preloader,
+        ImagePicker,
     },
     props: ['input'],
 

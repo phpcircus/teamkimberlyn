@@ -180,6 +180,7 @@ return [
         App\Providers\DatabaseServiceProvider::class,
         App\Providers\UrlServiceProvider::class,
         App\Providers\DebugbarServiceProvider::class,
+        App\Providers\FakerServiceProvider::class,
         App\Providers\IdeHelperServiceProvider::class,
     ],
 
