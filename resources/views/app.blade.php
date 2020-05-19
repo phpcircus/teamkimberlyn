@@ -6,6 +6,7 @@
         <meta property="og:url" content="https://teamkimberlyn.com/tshirt" />
         <meta property="og:title" content="#Team Kimberlyn">
         <meta property="og:image" content="https://glowing-grace.s3.us-east-2.amazonaws.com/public/gray_shirt.jpg">
+        <meta property="og:description" content="#TeamKimberlyn Blog. Tshirts on sale until 05-31-20">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Merriweather|Nunito:200,200i,300,300i,400,400i,600,600i,800,800i,900,900i" rel="stylesheet">
