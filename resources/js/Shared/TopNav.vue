@@ -80,7 +80,7 @@
             <div id="quicknewsMenu"
                  x-show="quicknewsOpen"
                  x-cloak
-                 class="absolute z-20 w-1/3 bg-white rounded-lg shadow-md top-25 left-50"
+                 class="absolute left-0 z-20 w-full bg-white rounded-lg shadow-md md:w-1/3 top-25 md:left-50"
                  x-transition:enter="transition ease-out duration-500 transform"
                  x-on:click.away="quicknewsOpen = false"
                  x-transition:enter-start="opacity-0 scale-50"
