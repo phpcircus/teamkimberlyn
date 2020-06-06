@@ -1,38 +1,42 @@
 <template>
     <layout title="Team Kimberlyn">
-        <div class="flex flex-col bg-white shadow-md container mx-auto max-w-7xl">
+        <div class="container flex flex-col mx-auto bg-white shadow-md max-w-7xl">
             <div class="px-6 pb-8">
                 <div class="w-full p-2 text-center">
-                    <h2 class="font-bold text-xl text-purple-600 uppercase">T-shirt sales will end on May 31<sup>st</sup>. Don't miss out!</h2>
+                    <h2 class="text-xl font-bold text-purple-600 uppercase">
+                        Tshirt sales have ended. Check back for other ways you can help. She's just begun and she understands there are difficult days ahead. Consider helping out.
+                    </h2>
+                    <h3 class="text-lg font-bold text-teal-500 uppercase">If you would like to give in the meantime, consider our <a href="https://www.gofundme.com/f/help-kimberlyn-fight-cancer" class="text-teal-800 hover:text-teal-500" target="_blank">GoFundMe</a></h3>
                 </div>
-                <div class="w-full flex flex-col md:flex-row justify-center mt-2">
-                    <img src="/img/black_shirt.jpg" class="w-full md:w-1/3 h-auto border-4 border-gray-400 rounded shadow">
-                    <img src="/img/gray_shirt.jpg" class="w-full md:w-1/3 h-auto border-4 border-gray-400 rounded shadow">
+                <div class="flex flex-col justify-center w-full mt-2 md:flex-row">
+                    <img src="/img/black_shirt.jpg" class="w-full h-auto border-4 border-gray-400 rounded shadow md:w-1/3" />
+                    <img src="/img/gray_shirt.jpg" class="w-full h-auto border-4 border-gray-400 rounded shadow md:w-1/3" />
                 </div>
-                <div class="font-opensans flex flex-col text-sm italic text-gray-600 font-semibold text-center w-full">
+            </div>
+                <!-- <div class="flex flex-col w-full text-sm italic font-semibold text-center text-gray-600 font-opensans">
                     <div class="flex self-center">
                         <span class="mr-4">Shirt sizes YS to AXL: <span class="font-bold">$20</span></span>
                         <span class="mr-4">XXL:  <span class="font-bold">$21</span></span>
                         <span class="mr-4">XXXL:  <span class="font-bold">$22</span></span>
                     </div>
-                    <span class="mr-4 text-teal-500 font-bold">For shipped orders, the final cost includes $5 to cover shipping.</span>
-                    <span class="mr-4 text-teal-500 font-semibold">Scroll to the bottom of the page for information about shipping.</span>
+                    <span class="mr-4 font-bold text-teal-500">For shipped orders, the final cost includes $5 to cover shipping.</span>
+                    <span class="mr-4 font-semibold text-teal-500">Scroll to the bottom of the page for information about shipping.</span>
                 </div>
-            </div>
-            <div class="bg-purple-200">
-                <div class="flex flex-col md:flex-row p-6 mt-2">
+            </div> -->
+            <!-- <div class="bg-purple-200">
+                <div class="flex flex-col p-6 mt-2 md:flex-row">
                     <div class="flex flex-col w-full md:w-1/2">
-                        <h1 class="text-teal-600 text-xs font-semibold uppercase mb-4">Enter the quantity next to your choices:</h1>
-                        <div class="flex flex-col flex-wrap h-540p w-full">
+                        <h1 class="mb-4 text-xs font-semibold text-teal-600 uppercase">Enter the quantity next to your choices:</h1>
+                        <div class="flex flex-col flex-wrap w-full h-540p">
                             <div v-for="size in $page.app.sizes" :key="size.id" class="flex flex-col mb-2">
                                 <div class="flex items-center">
-                                    <span class="inline-block align-middle text-sm mr-4 w-80p md:w-120p">{{ size.color }} - {{ size.abbr }}</span>
+                                    <span class="inline-block mr-4 text-sm align-middle w-80p md:w-120p">{{ size.color }} - {{ size.abbr }}</span>
                                     <text-input v-model="sizes[size.slug]" type="number" :step="1" class="w-60p" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <form ref="form" class="w-full md:w-1/2 my-6" @submit.prevent="confirm()">
+                    <form ref="form" class="w-full my-6 md:w-1/2" @submit.prevent="confirm()">
                         <label class="stripe">
                             <span :class="errorType === 'name' ? 'text-red-500' : ''">Name</span>
                             <input v-model="extraDetails.name" name="name" class="stripe-field" placeholder="Jane Doe" required>
@@ -48,11 +52,11 @@
                         <div class="mt-4">
                             <span class="text-gray-600" :class="errorType === 'deliveryType' ? 'text-red-500' : ''">Delivery Type</span>
                             <div class="flex mt-2">
-                                <label class="stripe inline-flex items-center">
+                                <label class="inline-flex items-center stripe">
                                     <input v-model="deliveryType" type="radio" class="form-radio" name="deliveryType" value="shipped">
                                     <span class="ml-2">Shipped</span>
                                 </label>
-                                <label class="stripe inline-flex items-center ml-6">
+                                <label class="inline-flex items-center ml-6 stripe">
                                     <input v-model="deliveryType" type="radio" class="form-radio" name="deliveryType" value="pickup">
                                     <span class="ml-2">Pick up</span>
                                 </label>
@@ -79,11 +83,11 @@
                         <div v-if="deliveryType === 'pickup'" class="mt-4">
                             <span class="text-gray-600" :class="errorType === 'pickupLocation' ? 'text-red-500' : ''">Pickup Location</span>
                             <div class="flex mt-2">
-                                <label class="stripe inline-flex items-center">
+                                <label class="inline-flex items-center stripe">
                                     <input v-model="pickupLocation" type="radio" class="form-radio" name="pickupLocation" value="irving">
                                     <span class="ml-2">Irving, TX</span>
                                 </label>
-                                <label class="stripe inline-flex items-center ml-6">
+                                <label class="inline-flex items-center ml-6 stripe">
                                     <input v-model="pickupLocation" type="radio" class="form-radio" name="pickupLocation" value="senatobia">
                                     <span class="ml-2">Senatobia, MS</span>
                                 </label>
@@ -95,22 +99,22 @@
                         </label>
                         <div v-if="ready" class="flex items-center">
                             <button class="stripe" type="submit">Purchase</button>
-                            <span v-if="total && total > 5" class="font-opensans text-lg text-teal-500 font-bold text-center w-full mt-2">
+                            <span v-if="total && total > 5" class="w-full mt-2 text-lg font-bold text-center text-teal-500 font-opensans">
                                 Your total is ${{ total }}
                             </span>
                         </div>
-                        <svg v-else class="w-8 inline-block align-middle" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="64px" height="64px" viewBox="0 0 128 128" xml:space="preserve"><path d="M0 128V83h17.25v27.75h93.5V83H128v45H0z" fill="#38c171" fill-opacity="1" /><g><path d="M80.92 210.95v-51.27h18.15L64 113.18l-35.07 46.5h18.15v51.27h33.84z" fill="#38c171" fill-opacity="1" /><animateTransform attributeName="transform" type="translate" from="0 0" to="0 -220" dur="1800ms" repeatCount="indefinite" /></g></svg>
-                        <div class="stripe-outcome mt-4">
-                            <div v-if="error" class="stripe-error bg-red-200 font-opensans text-red-500 rounded w-full font-semibold italic p-2 border border-red-500">{{ errorMessage }}</div>
+                        <svg v-else class="inline-block w-8 align-middle" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="64px" height="64px" viewBox="0 0 128 128" xml:space="preserve"><path d="M0 128V83h17.25v27.75h93.5V83H128v45H0z" fill="#38c171" fill-opacity="1" /><g><path d="M80.92 210.95v-51.27h18.15L64 113.18l-35.07 46.5h18.15v51.27h33.84z" fill="#38c171" fill-opacity="1" /><animateTransform attributeName="transform" type="translate" from="0 0" to="0 -220" dur="1800ms" repeatCount="indefinite" /></g></svg>
+                        <div class="mt-4 stripe-outcome">
+                            <div v-if="error" class="w-full p-2 italic font-semibold text-red-500 bg-red-200 border border-red-500 rounded stripe-error font-opensans">{{ errorMessage }}</div>
                             <div v-if="success" class="stripe-success">
                                 Success! Your Stripe token is <span class="token">{{ token }}</span>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
             <div>
-                <p class="font-opensans text-base text-gray-800 px-6 py-8">
+                <p class="px-6 py-8 text-base text-gray-800 font-opensans">
                     Kimberlyn Stone was diagnosed in January with colorectal cancer.  She and Clay live in Irving, Texas.  They have a beautiful family that includes four children and a precious granddaughter. Kimberlyn was finally getting to pursue her lifelong dream of becoming a cosmetologist.  She was busy juggling work, school, church and family when they got this news and everything changed.  This is going to be a long, hard journey for all of them, family and friends included.  I have designed this tshirt as a reminder that Kimberlyn is never alone. <br><br>We are here for you and will keep you prayed up!  All the profits from these shirts will go to Clay and Kimberlyn to help with their financial needs throughout this fight!<br><br>
                     The t-shirts are bella canvas and will be available in both youth and adult sizes.  There are two colors to chose from black and gray.  You can choose to pick up locally with in Senatobia, MS or Irving, TX or have the shirt(s) shipped directly to you.  Within 24 hours of your purchase, you will receive a confirmation email with further details regarding your order. We will place the first order April 3.  Shirts should be delivered or shipped 3 weeks after the order is placed.<br><br>
                     Please reach out to Lauren Spencer at lauren.sbckids@gmail.com if you have any questions.  Thank you for your support and prayers for this precious family!
@@ -232,22 +236,22 @@ export default {
     },
     created () {
         /* global Stripe */
-        this.stripe = Stripe (`${config.stripe}`);
-        this.elements = this.stripe.elements({
-            fonts: this.fonts,
-        });
-        this.card = this.elements.create('card', {style: this.style});
+        // this.stripe = Stripe (`${config.stripe}`);
+        // this.elements = this.stripe.elements({
+        //     fonts: this.fonts,
+        // });
+        // this.card = this.elements.create('card', {style: this.style});
 
-        this.card.on('change', event => {
-            this.processOutcome(event);
-        });
+        // this.card.on('change', event => {
+        //     this.processOutcome(event);
+        // });
 
-        Hub.$listen('purchaseFormReady', () => {
-            this.ready = true;
-        });
+        // Hub.$listen('purchaseFormReady', () => {
+        //     this.ready = true;
+        // });
     },
     mounted () {
-        this.card.mount(this.$refs.card);
+        // this.card.mount(this.$refs.card);
     },
     methods: {
         confirm () {
@@ -329,59 +333,59 @@ export default {
             });
         },
         purchase () {
-            let extraDetails = {
-                name: this.extraDetails.name,
-            };
-            this.stripe.createToken(this.card, extraDetails).then(this.processOutcome);
+            // let extraDetails = {
+            //     name: this.extraDetails.name,
+            // };
+            // this.stripe.createToken(this.card, extraDetails).then(this.processOutcome);
         },
         processOutcome (result) {
-            if (result.token) {
-                this.token = result.token.id;
-                axios.post(this.route('tshirt.purchase'), {
-                    name: this.extraDetails.name,
-                    phone: this.phone,
-                    email: this.email,
-                    address: this.address,
-                    city: this.city,
-                    state: this.state,
-                    zip: this.zip,
-                    deliveryType: this.deliveryType,
-                    pickupLocation: this.pickupLocation,
-                    sizes: this.sizes,
-                    total: this.total,
-                    token: result.token['id'],
-                }).then( response => {
-                    this.ready = true;
-                    this.resetForm();
-                    // this.$page.success.message = response.data.success;
-                    this.$snotify.success(response.data.success, 'Success!', { timeout: 5000 });
-                }).catch( error => {
-                    this.ready = true;
-                    if (error.response.data.errors) {
-                        const errorType = Object.keys(error.response.data.errors)[0];
-                        this.error = true;
-                        this.errorType = errorType;
-                        this.errorMessage = error.response.data.errors[errorType][0];
-                    }
-                    if (error.response.data.card_error) {
-                        const errorType = 'card';
-                        this.error = true;
-                        this.errorType = errorType;
-                        this.errorMessage = error.response.data.card_error;
-                    }
-                    if (error.response.data.customer_error) {
-                        const errorType = 'customer';
-                        this.error = true;
-                        this.errorType = errorType;
-                        this.errorMessage = error.response.data.customer_error;
-                    }
-                });
-            } else if (result.error) {
-                this.ready = true;
-                this.error = true;
-                this.errorType = 'card';
-                this.errorMessage = result.error.message;
-            }
+            // if (result.token) {
+            //     this.token = result.token.id;
+            //     axios.post(this.route('tshirt.purchase'), {
+            //         name: this.extraDetails.name,
+            //         phone: this.phone,
+            //         email: this.email,
+            //         address: this.address,
+            //         city: this.city,
+            //         state: this.state,
+            //         zip: this.zip,
+            //         deliveryType: this.deliveryType,
+            //         pickupLocation: this.pickupLocation,
+            //         sizes: this.sizes,
+            //         total: this.total,
+            //         token: result.token['id'],
+            //     }).then( response => {
+            //         this.ready = true;
+            //         this.resetForm();
+            //         // this.$page.success.message = response.data.success;
+            //         this.$snotify.success(response.data.success, 'Success!', { timeout: 5000 });
+            //     }).catch( error => {
+            //         this.ready = true;
+            //         if (error.response.data.errors) {
+            //             const errorType = Object.keys(error.response.data.errors)[0];
+            //             this.error = true;
+            //             this.errorType = errorType;
+            //             this.errorMessage = error.response.data.errors[errorType][0];
+            //         }
+            //         if (error.response.data.card_error) {
+            //             const errorType = 'card';
+            //             this.error = true;
+            //             this.errorType = errorType;
+            //             this.errorMessage = error.response.data.card_error;
+            //         }
+            //         if (error.response.data.customer_error) {
+            //             const errorType = 'customer';
+            //             this.error = true;
+            //             this.errorType = errorType;
+            //             this.errorMessage = error.response.data.customer_error;
+            //         }
+            //     });
+            // } else if (result.error) {
+            //     this.ready = true;
+            //     this.error = true;
+            //     this.errorType = 'card';
+            //     this.errorMessage = result.error.message;
+            // }
         },
         resetForm () {
             this.card.clear();

@@ -4,8 +4,8 @@
             <featured-post v-if="featured" :featured="featured" />
             <paginated-posts v-if="older" :posts="older" :links="links" />
             <template v-if="! older && ! featured">
-                <div class="w-full text-center mt-16 md:mt-24 bg-white shadow-md">
-                    <h1 class="font-damion text-3xl text-purple-700">
+                <div class="w-full mt-16 text-center bg-white shadow-md md:mt-24">
+                    <h1 class="text-3xl text-purple-700 font-damion">
                         No posts available at this time.<br />Check back soon!
                     </h1>
                 </div>
@@ -20,16 +20,16 @@ import FeaturedPost from '@/Shared/FeaturedPost';
 import PaginatedPosts from '@/Shared/PaginatedPosts';
 
 export default {
+    components: {
+        Layout,
+        FeaturedPost,
+        PaginatedPosts,
+    },
     props: {
         posts: {
             type: [Object,Array],
             default: () => ({}),
         },
-    },
-    components: {
-        Layout,
-        FeaturedPost,
-        PaginatedPosts,
     },
     data () {
         return {
